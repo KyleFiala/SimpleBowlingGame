@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleBowlingGame.Interface;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,16 +11,19 @@ namespace SimpleBowlingGame.Classes
         private List<Frame> _frames = new List<Frame>();
 
         public int Score() {
+            // Add acouple blank Frames at the end of _frames, this takes away the Strike and Spare bonus from final Frame
             _frames.Add(new Open(0, 0));
             _frames.Add(new Open(0, 0));
 
+            // Apply bonus points
 			for (int i = 0; i< 10; i++)
 				_frames[i].AddBonus(_frames[i + 1], _frames[i + 2]);
 
-            int counter = 0;
-            _frames.ForEach(frame => counter += frame.Score());
+            // Add up final Score.
+            int finalScore = 0;
+            _frames.ForEach(frame => finalScore += frame.Score());
 
-		    return counter;
+		    return finalScore;
     }
 
     public void RecordFrame(params int[] throws)

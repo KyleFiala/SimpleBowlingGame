@@ -1,6 +1,8 @@
 ﻿using System;
+
 namespace SimpleBowlingGame
 {
+    // This program is just a quick shotty interface to test the accuracy of the Methods in SimpleBowlingGame.
     class Program
     {
         static void Main(string[] args)
