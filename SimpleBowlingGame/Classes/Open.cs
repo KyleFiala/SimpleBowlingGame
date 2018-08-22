@@ -4,10 +4,8 @@ using System.Text;
 
 namespace SimpleBowlingGame.Classes
 {
-    class Open : Frame
+    public class Open : Frame
     {
-        public Open() : base(0, 0)
-        {
-        }
+        public Open(int firstThrow, int secondThrow) : base(firstThrow, secondThrow) { }
     }
 }

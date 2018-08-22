@@ -13,7 +13,7 @@ namespace SimpleBowlingGame
         void RecordFrame(params int[] throws);
 
         // Called at the end of the game to get the final score.
-        int Score { get; }
+        int Score();
 
     }
 }

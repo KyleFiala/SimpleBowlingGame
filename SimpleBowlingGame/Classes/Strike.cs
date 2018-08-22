@@ -15,9 +15,9 @@ namespace SimpleBowlingGame.Classes
         public override void AddBonus(Frame framePlusOne, Frame framePlusTwo)
         {
             if (framePlusOne is Strike)
-                _score += framePlusOne.FirstRoll() + framePlusTwo.FirstRoll();
+                _score += framePlusOne.FirstThrow() + framePlusTwo.FirstThrow();
             else
-                _score += framePlusOne.FirstRoll() + framePlusOne.SecondRoll();
+                _score += framePlusOne.FirstThrow() + framePlusOne.SecondThrow();
         }
     }
 }
