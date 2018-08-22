@@ -6,19 +6,23 @@ namespace SimpleBowlingGame.Class
 {
     class SimpleBowlingGame : ISimpleBowlingGame
     {
-        private int frame;
         private bool strike = false;
-
+        public int Frame { get; set; }
         public int Score { get; set; }
 
-        // Default constructor initializes game to first frame
+        // Default constructor initializes game to first Frame
         public SimpleBowlingGame()
         {
-            frame = 1;
+            Frame = 1;
         }
         public void RecordFrame(params int[] throws)
         {
-            int frameTotal = throws[0] + throws[1];
+            int frameTotal;
+            if (throws.Length > 1)
+                frameTotal = throws[0] + throws[1];
+            else
+                frameTotal = throws[0];
+
             int strikeBonus = frameTotal*2;
 
             int thirdThrow = 0;
@@ -27,12 +31,12 @@ namespace SimpleBowlingGame.Class
                 thirdThrow = throws[2];
             
             // If input is invalid we are just going to ingore it
-            if (frameTotal > 10)
+            if (frameTotal < 11)
             {
-                if (frame < 10)
+                if (Frame < 10)
                 {
-                    // Initialize Score if it's the first frame
-                    if (frame == 1)
+                    // Initialize Score if it's the first Frame
+                    if (Frame == 1)
                         Score = 0;
 
                     // Check for Strike
@@ -48,18 +52,18 @@ namespace SimpleBowlingGame.Class
                             Score += frameTotal;
                         }
                     }
-                    else // There wasn't a strike this frame
+                    else // There wasn't a strike this Frame
                     {
-                        if (strike) // Check for strike on previous frame
+                        if (strike) // Check for strike on previous Frame
                             Score += strikeBonus;
                         else
                             Score += frameTotal;
                         // Reset Strike Marker
                         strike = false;
                     }
-                    frame++;
+                    Frame++;
                 }
-                else // 10th frame
+                else // 10th Frame
                 {
                     // Check for fill ball.
                     if (frameTotal == 10)
@@ -77,8 +81,8 @@ namespace SimpleBowlingGame.Class
                             Score += frameTotal;
                     }
                     
-                    // Restart to frame one for next call
-                    frame = 1;
+                    // Restart to Frame one for next call
+                    Frame = 1;
                 }
             }
         }
