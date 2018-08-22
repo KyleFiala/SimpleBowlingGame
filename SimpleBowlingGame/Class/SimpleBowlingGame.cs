@@ -17,15 +17,13 @@ namespace SimpleBowlingGame.Class
         }
         public void RecordFrame(params int[] throws)
         {
-            // Store at number of pins knocked down on each throw
-            int firstThrow = throws[0];
-            int secondThrow = throws[1];
-            int frameTotal = firstThrow + secondThrow;
+            // Store number of pins knocked down on each throw
+            int frameTotal = throws[0] + throws[1];
             int strikeBonus = frameTotal*2;
 
             int thirdThrow = 0;
 
-            if (throws.Length > 2 && (firstThrow+secondThrow==10))
+            if (throws.Length > 2 && (frameTotal==10))
                 thirdThrow = throws[2];
             
             // If input is invalid we are just going to ingore it
