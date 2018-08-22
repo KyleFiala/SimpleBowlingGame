@@ -10,6 +10,7 @@ namespace SimpleBowlingGame.Class
         private bool strike = false;
 
         public int Score { get; set; }
+
         // Default constructor initializes game to first frame
         public SimpleBowlingGame()
         {
@@ -17,7 +18,6 @@ namespace SimpleBowlingGame.Class
         }
         public void RecordFrame(params int[] throws)
         {
-            // Store number of pins knocked down on each throw
             int frameTotal = throws[0] + throws[1];
             int strikeBonus = frameTotal*2;
 
@@ -77,7 +77,7 @@ namespace SimpleBowlingGame.Class
                             Score += frameTotal;
                     }
                     
-                    // Prepare for the end of the game and ask if the player would like to start a new game.
+                    // Restart to frame one for next call
                     frame = 1;
                 }
             }
