@@ -48,7 +48,7 @@ namespace SimpleBowlingGame.Class
                             Score += frameTotal;
                         }
                     }
-                    else // There wasn't a strike 
+                    else // There wasn't a strike this frame
                     {
                         if (strike) // Check for strike on previous frame
                             Score += strikeBonus;
@@ -59,7 +59,7 @@ namespace SimpleBowlingGame.Class
                     }
                     frame++;
                 }
-                else // 10th frames
+                else // 10th frame
                 {
                     // Check for fill ball.
                     if (frameTotal == 10)
